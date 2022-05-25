@@ -8,7 +8,7 @@ export default {
 
     //  Our games entry point (edit as required)
     input: [
-        './src/game.ts'
+        './src/index.ts'
     ],
 
     //  Where the build file is to be generated.
@@ -16,7 +16,7 @@ export default {
     //  You can also use 'umd' if you need to ingest your game into another system.
     //  The 'intro' property can be removed if using Phaser 3.21 or above. Keep it for earlier versions.
     output: {
-        file: './dist/game.js',
+        file: './dist/index.js',
         name: 'MyGame',
         format: 'iife',
         sourcemap: true,
@@ -37,14 +37,14 @@ export default {
 
         //  Parse our .ts source files
         resolve({
+            browser: true,
             extensions: [ '.ts', '.tsx' ]
         }),
 
         //  We need to convert the Phaser 3 CJS modules into a format Rollup can use:
         commonjs({
             include: [
-                'node_modules/eventemitter3/**',
-                'node_modules/phaser/**'
+                "node_modules/**"
             ],
             exclude: [ 
                 'node_modules/phaser/src/polyfills/requestAnimationFrame.js'
