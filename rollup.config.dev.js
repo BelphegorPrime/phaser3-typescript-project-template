@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
 import typescript from 'rollup-plugin-typescript2';
+import dotenv from 'rollup-plugin-dotenv';
 
 export default {
 
@@ -24,6 +25,7 @@ export default {
     },
 
     plugins: [
+        dotenv(),
 
         //  Toggle the booleans here to enable / disable Phaser 3 features:
         replace({
